@@ -85,14 +85,6 @@ graphili/
 │   └── app.js              # D3.js force graph engine
 │
 ├── tests/
-│   ├── tv1/                # Test v1: simple school-management sample
-│   │   └── sample_project/
-│   └── tv2/                # Test v2: complex e-commerce sample
-│       └── ecommerce/
-│           ├── routes/     # API endpoints (products, cart, orders)
-│           ├── services/   # Business logic (inventory, payment, notification)
-│           └── models/     # Data models + DB layer
-│
 ├── output/                 # Generated graph JSON files
 ├── cli.py                  # CLI entry point for JSON-only output
 ├── serve.py                # Analyzer + HTTP server for the graph UI
