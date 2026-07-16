@@ -1,0 +1,4 @@
+requests==2.31.0
+# no third-party deps needed for Phase 1 -- ast is stdlib
+# this file exists for when we add fastapi test fixtures / pytest later
+pytest==8.2.0

@@ -1,0 +1,45 @@
+"""
+v1 entry point. One-shot CLI: point it at a project root, get graph.json out.
+
+Usage:
+    python cli.py --path ./tests/sample_project
+    python cli.py --path ./tests/sample_project --out output/graph.json
+"""
+
+import argparse
+import json
+from pathlib import Path
+
+from analyzer.indexer import build_index
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Static code graph analyzer (Phase 1: indexing)")
+    parser.add_argument("--path", required=True, help="Root of the project to analyze")
+    parser.add_argument("--out", default="output/graph.json", help="Where to write graph JSON")
+    args = parser.parse_args()
+
+    print(f"Scanning {args.path} ...")
+    graph, node_by_id = build_index(args.path)
+
+    print(f"Found {len(graph.nodes)} nodes total:")
+    by_type = {}
+    for n in graph.nodes:
+        by_type[n.node_type] = by_type.get(n.node_type, 0) + 1
+    for t, count in sorted(by_type.items()):
+        print(f"  {t:10s} : {count}")
+
+    api_nodes = [n for n in graph.nodes if n.is_api]
+    if api_nodes:
+        print(f"\nAPI endpoints detected:")
+        for n in api_nodes:
+            print(f"  [{n.api_method}] {n.api_route}  ->  {n.id}  (line {n.line_number})")
+
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(graph.to_dict(), indent=2), encoding="utf-8")
+    print(f"\nWrote graph to {out_path}")
+
+
+if __name__ == "__main__":
+    main()

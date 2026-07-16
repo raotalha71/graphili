@@ -1,0 +1,44 @@
+"""
+Pass 1: build the complete node index across the whole project.
+This must finish fully before resolver.py (Pass 2) tries to build edges --
+you can't resolve a call to a function you haven't indexed yet.
+"""
+
+from pathlib import Path
+
+from .discovery import discover_python_files, to_module_path
+from .visitors import extract_nodes_from_source
+from .models import Graph, Node
+
+
+def build_index(root: str) -> tuple[Graph, dict[str, Node]]:
+    root_path = Path(root).resolve()
+    files = discover_python_files(root)
+
+    graph = Graph()
+    node_by_id: dict[str, Node] = {}
+
+    for file_path in files:
+        module_path = to_module_path(file_path, root_path)
+        rel_path = str(file_path.resolve().relative_to(root_path))
+
+        try:
+            source = file_path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError) as e:
+            print(f"  [skip] could not read {rel_path}: {e}")
+            continue
+
+        try:
+            nodes = extract_nodes_from_source(source, module_path, rel_path)
+        except SyntaxError as e:
+            print(f"  [skip] syntax error in {rel_path}: {e}")
+            continue
+
+        for node in nodes:
+            if node.id in node_by_id:
+                # duplicate qualified id -- shouldn't normally happen, flag it
+                print(f"  [warn] duplicate node id: {node.id} (in {rel_path})")
+            node_by_id[node.id] = node
+            graph.nodes.append(node)
+
+    return graph, node_by_id

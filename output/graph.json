@@ -1,0 +1,279 @@
+{
+  "nodes": [
+    {
+      "id": "models.student.Student",
+      "name": "Student",
+      "type": "class",
+      "file": "models/student.py",
+      "line": 5,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Represents a single enrolled student.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.student.Teacher",
+      "name": "Teacher",
+      "type": "class",
+      "file": "models/student.py",
+      "line": 14,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "routes.students.create_student",
+      "name": "create_student",
+      "type": "api",
+      "file": "routes/students.py",
+      "line": 8,
+      "args": [
+        {
+          "name": "name",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "grade",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.post('/students')"
+      ],
+      "is_api": true,
+      "api_method": "POST",
+      "api_route": "/students",
+      "parent_class": null,
+      "docstring": "API endpoint: enroll a new student.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.students.remove_student",
+      "name": "remove_student",
+      "type": "api",
+      "file": "routes/students.py",
+      "line": 14,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.delete('/students/{student_id}')"
+      ],
+      "is_api": true,
+      "api_method": "DELETE",
+      "api_route": "/students/{student_id}",
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "routes.students.suspend",
+      "name": "suspend",
+      "type": "api",
+      "file": "routes/students.py",
+      "line": 19,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.patch('/students/{student_id}/suspend')"
+      ],
+      "is_api": true,
+      "api_method": "PATCH",
+      "api_route": "/students/{student_id}/suspend",
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "routes.students.get_student",
+      "name": "get_student",
+      "type": "api",
+      "file": "routes/students.py",
+      "line": 24,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.get('/students/{student_id}')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/students/{student_id}",
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.enroll_student",
+      "name": "enroll_student",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 4,
+      "args": [
+        {
+          "name": "name",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "grade",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "Student",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Creates a new student record and saves it.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.generate_id",
+      "name": "generate_id",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 11,
+      "args": [],
+      "return_type": "int",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.save_student",
+      "name": "save_student",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 16,
+      "args": [
+        {
+          "name": "student",
+          "type": "Student",
+          "default": null
+        }
+      ],
+      "return_type": "None",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.withdraw_student",
+      "name": "withdraw_student",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 20,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Removes a student record. Structurally near-identical to enroll flow below.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.delete_from_db",
+      "name": "delete_from_db",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 26,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "services.enrollment.suspend_student",
+      "name": "suspend_student",
+      "type": "function",
+      "file": "services/enrollment.py",
+      "line": 32,
+      "args": [
+        {
+          "name": "student_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    }
+  ],
+  "edges": []
+}
