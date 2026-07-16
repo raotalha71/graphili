@@ -2,7 +2,9 @@
 
 **Static code graph analyzer for Python.** Point it at any Python project and get an interactive, Obsidian-style force-directed graph of your codebase — functions, classes, API endpoints, and the call connections between them. No code execution required.
 
-![Graphili Screenshot](https://raw.githubusercontent.com/raotalha71/graphili/main/docs/screenshot.png)
+<img width="959" height="511" alt="image" src="https://github.com/user-attachments/assets/c974d6fc-e618-484e-aabf-cee762ac6ec3" />
+
+<img width="959" height="506" alt="image" src="https://github.com/user-attachments/assets/60ff16ca-068d-4dd2-b555-7ec00f8463c4" />
 
 ---
 
