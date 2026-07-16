@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphili — Code Graph Visualizer</title>
+  <meta name="description" content="Interactive force-directed graph visualization of your codebase structure." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Graph Canvas -->
+  <svg id="graph-svg"></svg>
+
+  <!-- Search Bar -->
+  <div class="search-container" id="search-bar">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input
+      type="text"
+      class="search-input"
+      id="search-input"
+      placeholder="Search nodes..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar" id="stats-bar">
+    <div class="stat-item">
+      <span class="stat-value" id="stat-nodes">0</span>
+      <span>nodes</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value" id="stat-edges">0</span>
+      <span>edges</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value" id="stat-apis">0</span>
+      <span>APIs</span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend" id="legend">
+    <div class="legend-item">
+      <span class="legend-dot api"></span>
+      API
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot function"></span>
+      Function
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot class"></span>
+      Class
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot method"></span>
+      Method
+    </div>
+  </div>
+
+  <!-- Details Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <button class="sidebar-close" id="sidebar-close" title="Close">&times;</button>
+      <div class="sidebar-node-name" id="sidebar-name"></div>
+      <div class="sidebar-node-id" id="sidebar-id"></div>
+      <span class="type-badge" id="sidebar-type-badge"></span>
+    </div>
+    <div class="sidebar-body" id="sidebar-body">
+      <!-- Populated dynamically by app.js -->
+    </div>
+  </div>
+
+  <!-- D3.js v7 from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

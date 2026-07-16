@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 from analyzer.indexer import build_index
+from analyzer.resolver import resolve_edges
 
 
 def main():
@@ -22,12 +23,20 @@ def main():
     print(f"Scanning {args.path} ...")
     graph, node_by_id = build_index(args.path)
 
+    # --- Pass 2: resolve imports + calls into edges ---
+    print("Resolving edges ...")
+    resolve_edges(args.path, graph, node_by_id)
+
     print(f"Found {len(graph.nodes)} nodes total:")
     by_type = {}
     for n in graph.nodes:
         by_type[n.node_type] = by_type.get(n.node_type, 0) + 1
     for t, count in sorted(by_type.items()):
         print(f"  {t:10s} : {count}")
+
+    print(f"\nResolved {len(graph.edges)} edges:")
+    for e in graph.edges:
+        print(f"  {e.source}  -->  {e.target}  [{e.edge_type}]")
 
     api_nodes = [n for n in graph.nodes if n.is_api]
     if api_nodes:

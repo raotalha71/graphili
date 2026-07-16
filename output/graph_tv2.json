@@ -596,5 +596,91 @@
       "ast_hash": null
     }
   ],
-  "edges": []
+  "edges": [
+    {
+      "source": "models.db.get_db_connection",
+      "target": "models.db.DatabaseConnection",
+      "type": "calls"
+    },
+    {
+      "source": "models.order.get_order_by_id",
+      "target": "models.order.Order",
+      "type": "calls"
+    },
+    {
+      "source": "models.product.find_product_by_id",
+      "target": "models.product.Product",
+      "type": "calls"
+    },
+    {
+      "source": "routes.cart.add_item_to_cart",
+      "target": "services.inventory.check_stock_available",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "models.order.Order",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "services.payment.process_checkout",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "models.order.OrderItem",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.get_order_details",
+      "target": "models.order.get_order_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "routes.products.get_product_details",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.check_stock_available",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.reserve_stock",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.reserve_stock",
+      "target": "models.product.update_product_stock",
+      "type": "calls"
+    },
+    {
+      "source": "services.notification.notify_order_success",
+      "target": "services.notification.send_email_notification",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.payment.charge_credit_card",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "models.order.save_order",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.notification.notify_order_success",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.inventory.reserve_stock",
+      "type": "calls"
+    }
+  ]
 }
