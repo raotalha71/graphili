@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+
+# Testing
+.pytest_cache/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+
+# Distribution
+*.egg-info/
+
+# Distribution
+*.egg-info/
+
+# Distribution
+*.egg-info/

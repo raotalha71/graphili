@@ -4,7 +4,7 @@
       "id": "models.student.Student",
       "name": "Student",
       "type": "class",
-      "file": "models/student.py",
+      "file": "models\\student.py",
       "line": 5,
       "args": [],
       "return_type": null,
@@ -20,7 +20,7 @@
       "id": "models.student.Teacher",
       "name": "Teacher",
       "type": "class",
-      "file": "models/student.py",
+      "file": "models\\student.py",
       "line": 14,
       "args": [],
       "return_type": null,
@@ -36,7 +36,7 @@
       "id": "routes.students.create_student",
       "name": "create_student",
       "type": "api",
-      "file": "routes/students.py",
+      "file": "routes\\students.py",
       "line": 8,
       "args": [
         {
@@ -70,7 +70,7 @@
       "id": "routes.students.remove_student",
       "name": "remove_student",
       "type": "api",
-      "file": "routes/students.py",
+      "file": "routes\\students.py",
       "line": 14,
       "args": [
         {
@@ -94,7 +94,7 @@
       "id": "routes.students.suspend",
       "name": "suspend",
       "type": "api",
-      "file": "routes/students.py",
+      "file": "routes\\students.py",
       "line": 19,
       "args": [
         {
@@ -118,7 +118,7 @@
       "id": "routes.students.get_student",
       "name": "get_student",
       "type": "api",
-      "file": "routes/students.py",
+      "file": "routes\\students.py",
       "line": 24,
       "args": [
         {
@@ -142,7 +142,7 @@
       "id": "services.enrollment.enroll_student",
       "name": "enroll_student",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 4,
       "args": [
         {
@@ -174,7 +174,7 @@
       "id": "services.enrollment.generate_id",
       "name": "generate_id",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 11,
       "args": [],
       "return_type": "int",
@@ -190,7 +190,7 @@
       "id": "services.enrollment.save_student",
       "name": "save_student",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 16,
       "args": [
         {
@@ -212,7 +212,7 @@
       "id": "services.enrollment.withdraw_student",
       "name": "withdraw_student",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 20,
       "args": [
         {
@@ -234,7 +234,7 @@
       "id": "services.enrollment.delete_from_db",
       "name": "delete_from_db",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 26,
       "args": [
         {
@@ -256,7 +256,7 @@
       "id": "services.enrollment.suspend_student",
       "name": "suspend_student",
       "type": "function",
-      "file": "services/enrollment.py",
+      "file": "services\\enrollment.py",
       "line": 32,
       "args": [
         {
