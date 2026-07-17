@@ -22,9 +22,9 @@ import json
 import http.server
 from pathlib import Path
 
-from analyzer.indexer import build_index
-from analyzer.resolver import resolve_edges
-from analyzer.discovery import detect_source_root
+from .analyzer.indexer import build_index
+from .analyzer.resolver import resolve_edges
+from .analyzer.discovery import detect_source_root
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -232,8 +232,8 @@ Examples:
         """
     )
     parser.add_argument(
-        "--path", required=True,
-        help="Root of the Python project to analyze"
+        "--path", default=".",
+        help="Root of the Python project to analyze (defaults to current directory)"
     )
     parser.add_argument(
         "--export", default=None, metavar="FILE",
