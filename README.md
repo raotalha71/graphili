@@ -28,18 +28,10 @@ git clone https://github.com/raotalha71/graphili.git
 cd graphili
 ```
 
-### 2. Run the CLI (JSON output only)
+### 2. Launch the interactive graph UI
 
 ```bash
-python cli.py --path ./tests/tv2/ecommerce --out output/graph.json
-```
-
-This scans the project at the given path and writes a structured `graph.json` containing all nodes (functions, classes, APIs) and edges (call connections).
-
-### 3. Launch the interactive UI
-
-```bash
-python serve.py --path ./tests/tv2/ecommerce
+python run.py --path ./tests/tv2/ecommerce
 ```
 
 Open **http://localhost:8080** in your browser. That's it.
@@ -47,7 +39,21 @@ Open **http://localhost:8080** in your browser. That's it.
 Use `--port` to change the port:
 
 ```bash
-python serve.py --path ./tests/tv2/ecommerce --port 9000
+python run.py --path ./tests/tv2/ecommerce --port 9000
+```
+
+### 3. Export graph as JSON (no server)
+
+```bash
+python run.py --path ./tests/tv2/ecommerce --export output/graph.json
+```
+
+This scans the project, prints a detailed report, and writes the graph to a JSON file.
+
+### 4. Override source root (for src/ layouts or monorepos)
+
+```bash
+python run.py --path ./my_monorepo --src ./my_monorepo/src
 ```
 
 ---
