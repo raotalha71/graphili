@@ -94,9 +94,12 @@ graphili/
 │   └── app.js              # D3.js force graph engine
 │
 ├── tests/
+├── docs/
+│   └── changelog/          # Version history (v1.00.txt, v1.01.txt, ...)
 ├── output/                 # Generated graph JSON files
-├── cli.py                  # CLI entry point for JSON-only output
-├── serve.py                # Analyzer + HTTP server for the graph UI
+├── run.py                  # Single entry point (UI + export modes)
+├── cli.py                  # (legacy) CLI-only entry point
+├── serve.py                # (legacy) Server-only entry point
 ├── requirements.txt
 └── README.md
 ```
