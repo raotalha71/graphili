@@ -25,6 +25,8 @@ class GraphHandler(http.server.BaseHTTPRequestHandler):
     """
     graph_json: str = "{}"
     frontend_dir: str = ""
+    project_path: str = ""
+    src_root: str = ""
 
     def do_GET(self):
         # API endpoint → return graph JSON
@@ -49,6 +51,23 @@ class GraphHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(content)
         else:
             self.send_error(404, f"File not found: {req_path}")
+
+    def do_POST(self):
+        if self.path == "/api/refresh":
+            print(f"\n  [Refresh] Re-analyzing {GraphHandler.project_path} ...")
+            graph, node_by_id = build_index(GraphHandler.project_path, src_root=GraphHandler.src_root)
+            resolve_edges(GraphHandler.project_path, graph, node_by_id, src_root=GraphHandler.src_root)
+            GraphHandler.graph_json = json.dumps(graph.to_dict())
+            
+            node_count = len(graph.nodes)
+            edge_count = len(graph.edges)
+            api_count  = sum(1 for n in graph.nodes if n.is_api)
+            print(f"  [Refresh] Found {node_count} nodes, {edge_count} edges, {api_count} API endpoints\n")
+
+            self._send_json('{"status": "ok"}')
+            return
+            
+        self.send_error(404, "Endpoint not found")
 
     def _send_json(self, json_str: str):
         data = json_str.encode("utf-8")
@@ -123,6 +142,8 @@ def main():
     # ── Configure handler ──────────────────────────────────
     GraphHandler.graph_json  = json.dumps(graph.to_dict())
     GraphHandler.frontend_dir = str(Path(__file__).parent / "frontend")
+    GraphHandler.project_path = project_path
+    GraphHandler.src_root = src_root
 
     # ── Start server ───────────────────────────────────────
     server = http.server.HTTPServer(("localhost", args.port), GraphHandler)
