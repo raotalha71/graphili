@@ -1,0 +1,12 @@
+# Graphili v1.00
+
+**Phase 1: Basic Discovery & Indexing**
+
+- Created the core architecture (`analyzer/` package).
+- Built `discovery.py` to recursively find all `.py` files in a project, ignoring junk folders (`venv`, `node_modules`, etc.).
+- Built `visitors.py` using Python's `ast` module to statically parse source code.
+- Added extraction for Functions, Classes, and Methods.
+- Added API endpoint detection (identifying FastAPI/Flask style decorators like `@router.get`).
+- Built `indexer.py` to crawl files and build the initial Node graph.
+- Created `cli.py` to output the results as a structured JSON file.
+- Created `tests/tv1/sample_project` to verify basic extraction.
