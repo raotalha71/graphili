@@ -1,0 +1,686 @@
+{
+  "nodes": [
+    {
+      "id": "models.db.DatabaseConnection",
+      "name": "DatabaseConnection",
+      "type": "class",
+      "file": "models\\db.py",
+      "line": 5,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "models.db.DatabaseConnection.__init__",
+      "name": "__init__",
+      "type": "method",
+      "file": "models\\db.py",
+      "line": 6,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        },
+        {
+          "name": "connection_string",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "models.db.DatabaseConnection.connect",
+      "name": "connect",
+      "type": "method",
+      "file": "models\\db.py",
+      "line": 10,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": "Connects to the database.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.db.DatabaseConnection.execute_query",
+      "name": "execute_query",
+      "type": "method",
+      "file": "models\\db.py",
+      "line": 15,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        },
+        {
+          "name": "query",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "params",
+          "type": "tuple",
+          "default": null
+        }
+      ],
+      "return_type": "list",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": "Executes a SQL query and returns raw mock rows.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.db.get_db_connection",
+      "name": "get_db_connection",
+      "type": "function",
+      "file": "models\\db.py",
+      "line": 22,
+      "args": [],
+      "return_type": "DatabaseConnection",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Helper to initialize and return a database connection.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.order.OrderItem",
+      "name": "OrderItem",
+      "type": "class",
+      "file": "models\\order.py",
+      "line": 9,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "models.order.Order",
+      "name": "Order",
+      "type": "class",
+      "file": "models\\order.py",
+      "line": 15,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "models.order.save_order",
+      "name": "save_order",
+      "type": "function",
+      "file": "models\\order.py",
+      "line": 22,
+      "args": [
+        {
+          "name": "order",
+          "type": "Order",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Inserts or updates an order in the database.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.order.get_order_by_id",
+      "name": "get_order_by_id",
+      "type": "function",
+      "file": "models\\order.py",
+      "line": 36,
+      "args": [
+        {
+          "name": "order_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "Optional[Order]",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Retrieves an order from the database by ID.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.product.Product",
+      "name": "Product",
+      "type": "class",
+      "file": "models\\product.py",
+      "line": 9,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "models.product.find_product_by_id",
+      "name": "find_product_by_id",
+      "type": "function",
+      "file": "models\\product.py",
+      "line": 16,
+      "args": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "Optional[Product]",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Queries DB to find a product by its ID.",
+      "ast_hash": null
+    },
+    {
+      "id": "models.product.update_product_stock",
+      "name": "update_product_stock",
+      "type": "function",
+      "file": "models\\product.py",
+      "line": 27,
+      "args": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "new_stock",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Updates product stock in database.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.cart.add_item_to_cart",
+      "name": "add_item_to_cart",
+      "type": "api",
+      "file": "routes\\cart.py",
+      "line": 13,
+      "args": [
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.post('/cart/{user_id}/add')"
+      ],
+      "is_api": true,
+      "api_method": "POST",
+      "api_route": "/cart/{user_id}/add",
+      "parent_class": null,
+      "docstring": "Add a product item to a shopping cart, verifying availability first.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.cart.view_cart",
+      "name": "view_cart",
+      "type": "api",
+      "file": "routes\\cart.py",
+      "line": 25,
+      "args": [
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.get('/cart/{user_id}')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/cart/{user_id}",
+      "parent_class": null,
+      "docstring": "Retrieve shopping cart contents.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.orders.checkout_cart",
+      "name": "checkout_cart",
+      "type": "api",
+      "file": "routes\\orders.py",
+      "line": 11,
+      "args": [
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "items_data",
+          "type": "list[dict]",
+          "default": null
+        },
+        {
+          "name": "card_number",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.post('/orders/checkout')"
+      ],
+      "is_api": true,
+      "api_method": "POST",
+      "api_route": "/orders/checkout",
+      "parent_class": null,
+      "docstring": "API endpoint to check out a list of items and place an order.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.orders.get_order_details",
+      "name": "get_order_details",
+      "type": "api",
+      "file": "routes\\orders.py",
+      "line": 46,
+      "args": [
+        {
+          "name": "order_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.get('/orders/{order_id}')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/orders/{order_id}",
+      "parent_class": null,
+      "docstring": "Retrieve details for a past order.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.products.get_product_details",
+      "name": "get_product_details",
+      "type": "api",
+      "file": "routes\\products.py",
+      "line": 10,
+      "args": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.get('/products/{product_id}')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/products/{product_id}",
+      "parent_class": null,
+      "docstring": "Retrieve details of a specific product.",
+      "ast_hash": null
+    },
+    {
+      "id": "routes.products.search_catalog",
+      "name": "search_catalog",
+      "type": "api",
+      "file": "routes\\products.py",
+      "line": 23,
+      "args": [
+        {
+          "name": "query",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [
+        "router.get('/products/search')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/products/search",
+      "parent_class": null,
+      "docstring": "Search for products by query text.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.inventory.check_stock_available",
+      "name": "check_stock_available",
+      "type": "function",
+      "file": "services\\inventory.py",
+      "line": 6,
+      "args": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Verifies if the requested quantity of product is in stock.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.inventory.reserve_stock",
+      "name": "reserve_stock",
+      "type": "function",
+      "file": "services\\inventory.py",
+      "line": 13,
+      "args": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Reduces stock of product if available.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.notification.send_email_notification",
+      "name": "send_email_notification",
+      "type": "function",
+      "file": "services\\notification.py",
+      "line": 5,
+      "args": [
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "subject",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "body",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Sends a mock email notification to the user.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.notification.notify_order_success",
+      "name": "notify_order_success",
+      "type": "function",
+      "file": "services\\notification.py",
+      "line": 12,
+      "args": [
+        {
+          "name": "user_email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Convenience helper to send a successful order email.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.payment.charge_credit_card",
+      "name": "charge_credit_card",
+      "type": "function",
+      "file": "services\\payment.py",
+      "line": 8,
+      "args": [
+        {
+          "name": "card_number",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "amount",
+          "type": "float",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Mock-charges a credit card.",
+      "ast_hash": null
+    },
+    {
+      "id": "services.payment.process_checkout",
+      "name": "process_checkout",
+      "type": "function",
+      "file": "services\\payment.py",
+      "line": 13,
+      "args": [
+        {
+          "name": "order",
+          "type": "Order",
+          "default": null
+        },
+        {
+          "name": "card_number",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "bool",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Coordinates checkout: reserves stock, charges payment, \nsaves the order, and triggers success notifications.",
+      "ast_hash": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "models.db.get_db_connection",
+      "target": "models.db.DatabaseConnection",
+      "type": "calls"
+    },
+    {
+      "source": "models.order.get_order_by_id",
+      "target": "models.order.Order",
+      "type": "calls"
+    },
+    {
+      "source": "models.product.find_product_by_id",
+      "target": "models.product.Product",
+      "type": "calls"
+    },
+    {
+      "source": "routes.cart.add_item_to_cart",
+      "target": "services.inventory.check_stock_available",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "models.order.Order",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "services.payment.process_checkout",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.checkout_cart",
+      "target": "models.order.OrderItem",
+      "type": "calls"
+    },
+    {
+      "source": "routes.orders.get_order_details",
+      "target": "models.order.get_order_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "routes.products.get_product_details",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.check_stock_available",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.reserve_stock",
+      "target": "models.product.find_product_by_id",
+      "type": "calls"
+    },
+    {
+      "source": "services.inventory.reserve_stock",
+      "target": "models.product.update_product_stock",
+      "type": "calls"
+    },
+    {
+      "source": "services.notification.notify_order_success",
+      "target": "services.notification.send_email_notification",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.payment.charge_credit_card",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "models.order.save_order",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.notification.notify_order_success",
+      "type": "calls"
+    },
+    {
+      "source": "services.payment.process_checkout",
+      "target": "services.inventory.reserve_stock",
+      "type": "calls"
+    }
+  ]
+}
