@@ -253,7 +253,7 @@ Examples:
 
     print()
     print("  Graphili v1.05")
-    print("  ──────────────────────────────────────────")
+    print("  ------------------------------------------")
 
     if args.export:
         mode_export(args.path, args.export, args.src)
