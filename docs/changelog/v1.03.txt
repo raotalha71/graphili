@@ -1,0 +1,13 @@
+# Graphili v1.03
+
+**Phase 4: Source Root Auto-Detection**
+
+- Fixed an architecture issue where Graphili assumed the project root was always the Python module root. This broke import resolution on projects using a `src/` directory layout or nested monorepo structures.
+- Added `detect_source_root()` to `discovery.py` with 5 detection strategies:
+  1. `pyproject.toml` parsing for `[tool.setuptools.packages.find]`
+  2. `setup.cfg` parsing
+  3. `src/` directory heuristic
+  4. Top-level `__init__.py` boundary checks
+  5. Fallback to project root
+- Added a `--src` flag to `cli.py` and `serve.py` allowing users to manually override the source root.
+- Created the `tests/tv3` test suite, verifying that cross-module edges resolve correctly in a `src/` layout project.

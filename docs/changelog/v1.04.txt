@@ -1,0 +1,7 @@
+# Graphili v1.04
+
+**Phase 5: Refresh Endpoint**
+
+- Added a `/api/refresh` endpoint to `serve.py` to allow live re-analysis of the codebase without restarting the server.
+- Added a "Refresh" button to the front-end UI (`index.html`) to trigger the re-analysis and fetch the updated graph.
+- Updated the README with version tracking documentation.
