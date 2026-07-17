@@ -63,6 +63,9 @@ python serve.py --path ./tests/tv2/ecommerce --port 9000
 | Type in search bar | Filter nodes by name |
 | Press Escape | Clear search |
 | Click empty space | Deselect, close sidebar |
+| Click "Refresh" button | Re-analyzes the codebase on the fly without restarting the server |
+
+> **Note**: If you make changes to your Python files, click the **Refresh** button in the top right (next to the stats) to instantly update the graph.
 
 ---
 

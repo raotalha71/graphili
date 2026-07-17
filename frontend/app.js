@@ -72,6 +72,21 @@
   document.getElementById("stat-edges").textContent = links.length;
   document.getElementById("stat-apis").textContent  = nodes.filter(n => n.is_api).length;
 
+  // ── Refresh button ────────────────────────────────────────
+  const refreshBtn = document.getElementById("refresh-btn");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", async () => {
+      refreshBtn.classList.add("spinning");
+      try {
+        await fetch("/api/refresh", { method: "POST" });
+        window.location.reload(); // Reload to fetch new graph and reset simulation
+      } catch (err) {
+        console.error("Failed to refresh:", err);
+        refreshBtn.classList.remove("spinning");
+      }
+    });
+  }
+
   // ── SVG setup ─────────────────────────────────────────────
   const width  = window.innerWidth;
   const height = window.innerHeight;
