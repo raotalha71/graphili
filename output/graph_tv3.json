@@ -1,0 +1,284 @@
+{
+  "nodes": [
+    {
+      "id": "myapp.api.endpoints.get_analytics",
+      "name": "get_analytics",
+      "type": "api",
+      "file": "src\\myapp\\api\\endpoints.py",
+      "line": 17,
+      "args": [
+        {
+          "name": "dataset_id",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "filters",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "dict",
+      "decorators": [
+        "router.get('/analytics/{dataset_id}')"
+      ],
+      "is_api": true,
+      "api_method": "GET",
+      "api_route": "/analytics/{dataset_id}",
+      "parent_class": null,
+      "docstring": "Fetch analytics for a given dataset.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.api.endpoints.run_batch_analytics",
+      "name": "run_batch_analytics",
+      "type": "api",
+      "file": "src\\myapp\\api\\endpoints.py",
+      "line": 26,
+      "args": [
+        {
+          "name": "dataset_ids",
+          "type": "list[str]",
+          "default": null
+        }
+      ],
+      "return_type": "dict",
+      "decorators": [
+        "router.post('/analytics/batch')"
+      ],
+      "is_api": true,
+      "api_method": "POST",
+      "api_route": "/analytics/batch",
+      "parent_class": null,
+      "docstring": "Run analytics across multiple datasets.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.DatabaseConnection",
+      "name": "DatabaseConnection",
+      "type": "class",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 6,
+      "args": [],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Simple database connection wrapper.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.DatabaseConnection.__init__",
+      "name": "__init__",
+      "type": "method",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 9,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        },
+        {
+          "name": "connection_string",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.DatabaseConnection.connect",
+      "name": "connect",
+      "type": "method",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 13,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.DatabaseConnection.execute",
+      "name": "execute",
+      "type": "method",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 16,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        },
+        {
+          "name": "query",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "list",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": "Execute a query and return results.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.DatabaseConnection.close",
+      "name": "close",
+      "type": "method",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 20,
+      "args": [
+        {
+          "name": "self",
+          "type": null,
+          "default": null
+        }
+      ],
+      "return_type": null,
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": "DatabaseConnection",
+      "docstring": null,
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.database.get_connection",
+      "name": "get_connection",
+      "type": "function",
+      "file": "src\\myapp\\core\\database.py",
+      "line": 24,
+      "args": [
+        {
+          "name": "db_url",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "DatabaseConnection",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Factory function to create a database connection.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.logic.validate_input",
+      "name": "validate_input",
+      "type": "function",
+      "file": "src\\myapp\\core\\logic.py",
+      "line": 6,
+      "args": [
+        {
+          "name": "dataset_id",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "filters",
+          "type": "str",
+          "default": null
+        }
+      ],
+      "return_type": "dict",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Validate and normalize input parameters.",
+      "ast_hash": null
+    },
+    {
+      "id": "myapp.core.logic.compute_analytics",
+      "name": "compute_analytics",
+      "type": "function",
+      "file": "src\\myapp\\core\\logic.py",
+      "line": 15,
+      "args": [
+        {
+          "name": "validated_input",
+          "type": "dict",
+          "default": null
+        },
+        {
+          "name": "connection",
+          "type": null,
+          "default": null
+        }
+      ],
+      "return_type": "dict",
+      "decorators": [],
+      "is_api": false,
+      "api_method": null,
+      "api_route": null,
+      "parent_class": null,
+      "docstring": "Run analytics computation on a validated dataset.",
+      "ast_hash": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "myapp.api.endpoints.get_analytics",
+      "target": "myapp.core.database.get_connection",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.api.endpoints.get_analytics",
+      "target": "myapp.core.logic.validate_input",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.api.endpoints.get_analytics",
+      "target": "myapp.core.logic.compute_analytics",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.api.endpoints.run_batch_analytics",
+      "target": "myapp.core.database.get_connection",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.api.endpoints.run_batch_analytics",
+      "target": "myapp.core.logic.validate_input",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.api.endpoints.run_batch_analytics",
+      "target": "myapp.core.logic.compute_analytics",
+      "type": "calls"
+    },
+    {
+      "source": "myapp.core.database.get_connection",
+      "target": "myapp.core.database.DatabaseConnection",
+      "type": "calls"
+    }
+  ]
+}

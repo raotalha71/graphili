@@ -14,7 +14,7 @@ Resolution strategy (v1):
 import ast
 from pathlib import Path
 
-from .discovery import discover_python_files, to_module_path
+from .discovery import discover_python_files, to_module_path, detect_source_root
 from .models import Graph, Edge, Node
 
 
@@ -181,20 +181,31 @@ class _FunctionBodyWalker(ast.NodeVisitor):
 # Public API
 # ---------------------------------------------------------------------------
 
-def resolve_edges(root: str, graph: Graph, node_by_id: dict[str, Node]) -> None:
+def resolve_edges(root: str, graph: Graph, node_by_id: dict[str, Node], src_root: str | None = None) -> None:
     """
     Pass 2: re-parse every file, extract imports + calls,
     resolve calls to node IDs, and add Edge objects to the graph.
 
+    Args:
+        root:     Project root — where to find .py files.
+        src_root: Source root — where Python module paths start.
+                  If None, auto-detected via detect_source_root().
+
     Modifies graph.edges in place.
     """
     root_path = Path(root).resolve()
+
+    if src_root:
+        source_root = Path(src_root).resolve()
+    else:
+        source_root = detect_source_root(root)
+
     files = discover_python_files(root)
 
     seen_edges: set[tuple[str, str]] = set()
 
     for file_path in files:
-        module_path = to_module_path(file_path, root_path)
+        module_path = to_module_path(file_path, source_root)
 
         try:
             source = file_path.read_text(encoding="utf-8")

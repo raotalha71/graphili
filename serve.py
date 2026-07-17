@@ -15,6 +15,7 @@ from pathlib import Path
 
 from analyzer.indexer import build_index
 from analyzer.resolver import resolve_edges
+from analyzer.discovery import detect_source_root
 
 
 class GraphHandler(http.server.BaseHTTPRequestHandler):
@@ -88,14 +89,30 @@ def main():
         "--port", type=int, default=8080,
         help="Port to serve on (default: 8080)"
     )
+    parser.add_argument(
+        "--src", default=None,
+        help="Source root override (where Python module paths start). "
+             "Auto-detected if not provided."
+    )
     args = parser.parse_args()
 
     project_path = args.path
 
+    # ── Detect source root ─────────────────────────────────
+    if args.src:
+        src_root = str(Path(args.src).resolve())
+        print(f"\n  Source root (manual): {src_root}")
+    else:
+        src_root_path = detect_source_root(project_path)
+        src_root = str(src_root_path)
+        project_resolved = str(Path(project_path).resolve())
+        if src_root != project_resolved:
+            print(f"\n  Source root (auto-detected): {src_root}")
+
     # ── Run analyzer pipeline ──────────────────────────────
-    print(f"\n  Analyzing {project_path} ...")
-    graph, node_by_id = build_index(project_path)
-    resolve_edges(project_path, graph, node_by_id)
+    print(f"  Analyzing {project_path} ...")
+    graph, node_by_id = build_index(project_path, src_root=src_root)
+    resolve_edges(project_path, graph, node_by_id, src_root=src_root)
 
     node_count = len(graph.nodes)
     edge_count = len(graph.edges)

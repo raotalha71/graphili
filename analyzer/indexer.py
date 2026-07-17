@@ -6,20 +6,34 @@ you can't resolve a call to a function you haven't indexed yet.
 
 from pathlib import Path
 
-from .discovery import discover_python_files, to_module_path
+from .discovery import discover_python_files, to_module_path, detect_source_root
 from .visitors import extract_nodes_from_source
 from .models import Graph, Node
 
 
-def build_index(root: str) -> tuple[Graph, dict[str, Node]]:
+def build_index(root: str, src_root: str | None = None) -> tuple[Graph, dict[str, Node]]:
+    """
+    Scan all .py files under `root`, extract nodes from each.
+
+    Args:
+        root:     Project root — where to find .py files.
+        src_root: Source root — where Python module paths start.
+                  If None, auto-detected via detect_source_root().
+    """
     root_path = Path(root).resolve()
+
+    if src_root:
+        source_root = Path(src_root).resolve()
+    else:
+        source_root = detect_source_root(root)
+
     files = discover_python_files(root)
 
     graph = Graph()
     node_by_id: dict[str, Node] = {}
 
     for file_path in files:
-        module_path = to_module_path(file_path, root_path)
+        module_path = to_module_path(file_path, source_root)
         rel_path = str(file_path.resolve().relative_to(root_path))
 
         try:
