@@ -1,0 +1,12 @@
+# Graphili v1.05
+
+**Unified Entry Point**
+
+- Merged `cli.py` and `serve.py` into a single file: `run.py`.
+- Created a shared `run_analysis()` function that eliminates all duplicated pipeline code.
+- `run.py` now has two modes:
+  - Default: launches the interactive graph UI (`python run.py --path ./project`)
+  - Export: writes JSON and exits (`python run.py --path ./project --export graph.json`)
+- The old `cli.py` and `serve.py` are kept for backward compatibility but are no longer the primary entry points.
+- Added version header to terminal output (`Graphili v1.05`).
+- Created `docs/changelog/` directory with version history files (v1.00 through v1.05).
