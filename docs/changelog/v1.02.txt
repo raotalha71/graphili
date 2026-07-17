@@ -1,0 +1,13 @@
+# Graphili v1.02
+
+**Phase 3: Interactive UI**
+
+- Created `serve.py`, a lightweight Python HTTP server (stdlib only) that runs the analyzer and serves the graph UI.
+- Built a front-end visualization using D3.js force-directed graphs.
+- Implemented Obsidian-style aesthetics (dark theme, glow effects).
+- Added UI features:
+  - Color-coded nodes (API, Function, Class, Method).
+  - Pan, zoom, and drag interactions.
+  - Directional arrows for edges (who calls who).
+  - Search bar to filter and highlight specific nodes.
+  - Slide-in details sidebar that shows auto-generated summaries, arguments, and clickable lists of incoming/outgoing calls.

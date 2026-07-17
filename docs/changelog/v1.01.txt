@@ -1,0 +1,11 @@
+# Graphili v1.01
+
+**Phase 2: Import Resolution & Edge Building**
+
+- Added `resolver.py` to trace function calls across different files.
+- Implemented Pass 2 of the analyzer:
+  - Step 1: Extracts file-level import mappings (e.g., `from models.product import find` -> `models.product.find`).
+  - Step 2: Scans function bodies for raw call names.
+  - Step 3: Resolves calls to fully-qualified Node IDs using direct matches, import maps, and same-module fallbacks.
+- Updated the graph schema to include `Edge` objects (Source -> Target).
+- Created `tests/tv2/ecommerce` — a complex mock MVC backend to verify multi-file call tracing.
