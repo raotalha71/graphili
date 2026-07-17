@@ -2,7 +2,9 @@
 
 **Static code graph analyzer for Python.** Point it at any Python project and get an interactive, Obsidian-style force-directed graph of your codebase — functions, classes, API endpoints, and the call connections between them. No code execution required.
 
-![Graphili Screenshot](https://raw.githubusercontent.com/raotalha71/graphili/main/docs/screenshot.png)
+<img width="959" height="511" alt="image" src="https://github.com/user-attachments/assets/c974d6fc-e618-484e-aabf-cee762ac6ec3" />
+
+<img width="959" height="506" alt="image" src="https://github.com/user-attachments/assets/60ff16ca-068d-4dd2-b555-7ec00f8463c4" />
 
 ---
 
@@ -83,14 +85,6 @@ graphili/
 │   └── app.js              # D3.js force graph engine
 │
 ├── tests/
-│   ├── tv1/                # Test v1: simple school-management sample
-│   │   └── sample_project/
-│   └── tv2/                # Test v2: complex e-commerce sample
-│       └── ecommerce/
-│           ├── routes/     # API endpoints (products, cart, orders)
-│           ├── services/   # Business logic (inventory, payment, notification)
-│           └── models/     # Data models + DB layer
-│
 ├── output/                 # Generated graph JSON files
 ├── cli.py                  # CLI entry point for JSON-only output
 ├── serve.py                # Analyzer + HTTP server for the graph UI
